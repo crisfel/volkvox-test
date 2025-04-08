@@ -218,7 +218,7 @@
             const productId = $(this).data('id');
 
             $.ajax({
-                url: `http://127.0.0.1:8000/api/products/${productId}`,
+                url: `http://127.0.0.1:8000/api/product/${productId}`,
                 type: 'GET',
                 success: function(product) {
                     $('#editProductId').val(product.id);
@@ -228,6 +228,7 @@
                 },
                 error: function(xhr, status, error) {
                     alert('Error al cargar el producto: ' + error);
+                    console.error('Error details:', xhr.responseText);
                 }
             });
         });
